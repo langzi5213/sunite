@@ -1,0 +1,179 @@
+ <?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-ezviz" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-ezviz</name>
+    <js-module name="ezviz" src="www/ezviz.js">
+        <clobbers target="ezviz" />
+    </js-module>
+
+    
+
+    <platform name = "android">
+        
+         <!-- <hook type="after_prepare" src="script/android_application.js" /> -->
+
+            <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="EzvizVideo" >
+                <param name="android-package" value="com.ezuikit.open.EzvizVideo"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
+                <uses-permission android:name="android.permission.INTERNET" />
+                <uses-permission android:name="android.permission.WAKE_LOCK" />
+                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+                <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+                <uses-permission android:name="android.permission.CAMERA" />
+                <uses-permission android:name="android.permission.RECORD_AUDIO" />
+                <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+                <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+                <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+                <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+                <uses-permission android:name="android.permission.READ_LOGS" />
+                <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+                <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+           <activity android:name="com.ezuikit.open.EzvizActivity"/>
+        </config-file>
+
+       
+        <!--java-->
+        <!-- <source-file src="src/android/src/com/ezuikit/open/EzvizActivity.java" target-dir="src/com/ezuikit/open"/> -->
+        <source-file src="src/android/src/com/ezuikit/open/EzvizVideo.java" target-dir="src/com/ezuikit/open"/>
+      <!-- <source-file src="src/android/src/com/ezuikit/open/Main.java" target-dir="src/com/ezuikit/open"/> -->
+        <!-- <source-file src="src/android/src/com/ezuikit/open/EzvizApplication.java" target-dir="src/com/ezuikit/open"/> -->
+        <!-- <source-file src="src/android/src/com/ezuikit/open/PlayBackActivity.java" target-dir="src/com/ezuikit/open"/> -->
+         <!-- <source-file src="src/android/src/com/ezuikit/open/WindowSizeChangeNotifier.java" target-dir="src/com/ezuikit/open"/> -->
+
+         <!-- scan -->
+       <!--   <source-file src="src/android/src/com/ezuikit/open/scan/camera/AutoFocusCallback.java" target-dir="src/com/ezuikit/open/scan/camera"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/camera/CameraConfigurationManager.java" target-dir="src/com/ezuikit/open/scan/camera"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/camera/CameraManager.java" target-dir="src/com/ezuikit/open/scan/camera"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/camera/PreviewCallback.java" target-dir="src/com/ezuikit/open/scan/camera"/>
+ -->
+
+           <!-- main -->
+  <!--        <source-file src="src/android/src/com/ezuikit/open/scan/main/CaptureActivity.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/CaptureActivityHandler.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/Contents.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/DecodeFormatManager.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/DecodeHandler.java" target-dir="src/com/ezuikit/open/scan/main"/>
+
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/DecodeThread.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/FinishListener.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/InactivityTimer.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/Intents.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/IntentSource.java" target-dir="src/com/ezuikit/open/scan/main"/>
+
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/PlanarYUVLuminanceSource.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/ViewfinderResultPointCallback.java" target-dir="src/com/ezuikit/open/scan/main"/>
+         <source-file src="src/android/src/com/ezuikit/open/scan/main/ViewfinderView.java" target-dir="src/com/ezuikit/open/scan/main"/> -->
+
+
+          <!-- timeshaftbar -->
+       <!--   <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/LayoutController.java" target-dir="src/com/ezuikit/open/timeshaftbar"/>
+        <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/OverScroller.java" target-dir="src/com/ezuikit/open/timeshaftbar"/>
+        <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/Scroller.java" target-dir="src/com/ezuikit/open/timeshaftbar"/>
+        <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/TimebarTick.java" target-dir="src/com/ezuikit/open/timeshaftbar"/>
+        <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/TimerShaftBar.java" target-dir="src/com/ezuikit/open/timeshaftbar"/>
+
+         <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/TimerShaftInterface.java" target-dir="src/com/ezuikit/open/timeshaftbar"/>
+        <source-file src="src/android/src/com/ezuikit/open/timeshaftbar/TimerShaftRegionItem.java" target-dir="src/com/ezuikit/open/timeshaftbar"/> -->
+
+
+       
+         
+        
+
+        <!--lib-->
+        <source-file src="src/android/libs/EZOpenSDK_V4.7.1.20171109.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/EZUIKit_1.4.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/gson-2.7.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/zxing.jar" target-dir="libs"/>
+       
+
+       <!-- so -->
+         <source-file src="src/android/libs/armeabi-v7a/libAnalyzeData.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libAudioEngine.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libCpuFeatures.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libcurl.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libencryptprotect.so" target-dir="libs/armeabi-v7a"/>
+
+          <source-file src="src/android/libs/armeabi-v7a/libezstreamclient.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libgnustl_shared.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCAlarm.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCCore.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCCoreDevCfg.so" target-dir="libs/armeabi-v7a"/>
+
+          <source-file src="src/android/libs/armeabi-v7a/libHCDisplay.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCGeneralCfgMgr.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCIndustry.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libhcnetsdk.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCPlayBack.so" target-dir="libs/armeabi-v7a"/>
+
+          <source-file src="src/android/libs/armeabi-v7a/libHCPreview.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libHCVoiceTalk.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libhpr.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libminiupnpc.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libopensslwrap.so" target-dir="libs/armeabi-v7a"/>
+
+          <source-file src="src/android/libs/armeabi-v7a/libPlayCtrl.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libPlayCtrl_L.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libprotobuf-lite.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libsadp.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libStunClientSDK.so" target-dir="libs/armeabi-v7a"/>
+          <source-file src="src/android/libs/armeabi-v7a/libSystemTransform.so" target-dir="libs/armeabi-v7a"/>
+         <source-file src="src/android/libs/armeabi-v7a/libUdpClient.so" target-dir="libs/armeabi-v7a"/>
+
+
+
+       
+<!-- drawable -->
+        <source-file src="src/android/res/drawable/camera_item_top_background.xml" target-dir="res/drawable"/>
+        <source-file src="src/android/res/drawable/progress.xml" target-dir="res/drawable"/>
+
+<!-- drawable-xhdpi -->
+        <source-file src="src/android/res/drawable-xhdpi/add2_button.png" target-dir="res/drawable-xhdpi"/>
+        <source-file src="src/android/res/drawable-xhdpi/app_icon.png" target-dir="res/drawable-xhdpi"/>
+        <source-file src="src/android/res/drawable-xhdpi/app_icon_small.png" target-dir="res/drawable-xhdpi"/>
+        <source-file src="src/android/res/drawable-xhdpi/common_refresh.png" target-dir="res/drawable-xhdpi"/>
+        <source-file src="src/android/res/drawable-xhdpi/logo.png" target-dir="res/drawable-xhdpi"/>
+     
+
+   <!--layout-->
+        <!-- <source-file src="src/android/res/layout/activity_capture.xml" target-dir="res/layout"/> -->
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout"/>
+        <!-- <source-file src="src/android/res/layout/activity_main2.xml" target-dir="res/layout"/> -->
+        <!-- <source-file src="src/android/res/layout/activity_play.xml" target-dir="res/layout"/> -->
+        <!-- <source-file src="src/android/res/layout/activity_play_back.xml" target-dir="res/layout"/> -->
+        <!-- <source-file src="src/android/res/layout/activity_ezviz.xml" target-dir="res/layout"/> -->
+
+
+       <!-- layout-xlarge -->
+        <!-- <source-file src="src/android/res/layout-xlarge/activity_capture.xml" target-dir="res/layout-xlarge"/> -->
+
+
+
+        <!-- mipmap-hdpi --> 
+        <source-file src="src/android/res/mipmap-hdpi/ic_launcher.png" target-dir="res/mipmap-hdpi"/>
+
+         <!-- raw -->
+        <source-file src="src/android/res/raw/beep.mp3" target-dir="res/raw"/>
+
+        <!--values-->
+        <source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+         <source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+          <source-file src="src/android/res/values/ids.xml" target-dir="res/values"/>
+           <!-- <source-file src="src/android/res/values/strings.xml" target-dir="res/values"/> -->
+            <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+
+
+            
+<!-- values-w820dp -->
+             <source-file src="src/android/res/values-w820dp/dimens.xml" target-dir="res/values-w820dp"/>
+            
+        
+    </platform>
+</plugin>
